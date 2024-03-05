@@ -4,4 +4,5 @@ members = [
     "dotenvy-test",
     "stds",
     "bytes-test",
+    "axum-test",
 ]

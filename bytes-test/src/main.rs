@@ -1,4 +1,7 @@
-use std::{fs::File, io::{self, Read}};
+use std::{
+    fs::File,
+    io::{self, Read},
+};
 
 use bytes::{BufMut, Bytes, BytesMut};
 
@@ -15,7 +18,7 @@ fn main() {
 fn test() {
     let a = Bytes::from("Hello".to_string());
     println!("{:?}", a);
-    
+
     let mut b = BytesMut::with_capacity(5);
     b.put(&b"hello"[..]);
     println!("{:?}", b);
@@ -24,18 +27,15 @@ fn test() {
     println!("{:?}", b);
 }
 
-
-fn use_fs_sys() -> Result<BytesMut, io::Error>{
+fn use_fs_sys() -> Result<BytesMut, io::Error> {
     let mut file = File::open("text.txt")?;
 
-    let mut  buf = BytesMut::new();
+    let mut buf = BytesMut::new();
 
     let mut src = Vec::new();
     file.read_to_end(&mut src)?;
 
-   buf.put(&*src);
+    buf.put(&*src);
 
     Ok(buf)
 }
-
-

@@ -1,16 +1,15 @@
 use core::fmt;
 use std::fmt::Display;
 
-mod lamda;
-mod iter_test;
 mod collecgtions;
+mod iter_test;
+mod lamda;
 
 fn main() {
     let mut a = TypeA::new(1, "ryo".to_string());
 
     let buf: [u8; 4] = [0, 1, 2, 3];
     let hoge = Vec::from(buf);
-
 }
 
 struct TypeA {
@@ -20,10 +19,7 @@ struct TypeA {
 
 impl TypeA {
     fn new(id: i32, name: String) -> Self {
-        Self {
-            id,
-            name,
-        }
+        Self { id, name }
     }
 }
 

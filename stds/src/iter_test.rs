@@ -22,9 +22,7 @@ fn deferent() {
 
 // from_fnはOptionを返すクロージャFnMut()を実行する
 fn froms() {
-    let gen = || {
-        Some(128)
-    };
+    let gen = || Some(128);
 
     let buf: Vec<i32> = std::iter::from_fn(gen).take(5).collect();
 
@@ -43,7 +41,7 @@ pub mod other {
     pub fn split_vec() {
         let v = vec![1, 1, 2, 3, 4];
 
-        let buf= v.split(|x| x % 2 == 0).into_iter();
+        let buf = v.split(|x| x % 2 == 0).into_iter();
 
         for i in buf {
             println!("{:?}", i);
@@ -61,7 +59,7 @@ pub mod other {
     // 文字列をbyte列に変換する.byte()
     pub fn bytes_str() {
         let text = "Hello World Rustacean".to_string();
-        
+
         let v: Vec<u8> = text.bytes().collect();
         println!("{:?}", v);
         let x = String::from_utf8(v).unwrap();
@@ -70,7 +68,7 @@ pub mod other {
 
     // Optionをアンラップする
     pub fn filter() {
-        let v = vec![Ok(32), Ok(128),  Err(3), Ok(256)];  
+        let v = vec![Ok(32), Ok(128), Err(3), Ok(256)];
 
         let s: Vec<i32> = v.iter().filter_map(|x| x.ok()).collect();
         println!("{:?}", s);
@@ -90,7 +88,7 @@ pub mod other {
 
         let text = vec!["first", "second", "thired", "fourth", "fifth"];
 
-        let v: Vec<_>= i.iter().zip(text).collect();
+        let v: Vec<_> = i.iter().zip(text).collect();
 
         for (i, element) in v {
             println!("{}: {}", i, element);

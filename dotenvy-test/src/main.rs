@@ -1,6 +1,6 @@
 use std::env;
 
-fn main() -> Result<(), Box<dyn std::error::Error>>{
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     // .envファイルは一番上のディレクトリに置かないと読み込めなかった
     dotenvy::dotenv()?;
 
@@ -12,6 +12,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>>{
 
     // 出力: your_api_key
     println!("{}", &response2);
-    
+
     Ok(())
 }
