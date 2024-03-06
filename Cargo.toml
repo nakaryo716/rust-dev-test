@@ -5,4 +5,5 @@ members = [
     "stds",
     "bytes-test",
     "axum-test",
+    "chrono-test",
 ]
