@@ -1,12 +1,9 @@
 use std::{env, error::Error};
-
 use sqlx::{prelude::FromRow, PgPool};
 use tokio::time::{self, sleep};
 
-
-
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn Error>>{
+async fn main() -> Result<(), Box<dyn Error>> {
     dotenvy::dotenv()?;
     let url = env::var("DATABASE_URL")?;
     let pool = PgPool::connect(&url).await?;
@@ -41,13 +38,14 @@ pub struct CreateUser {
     date: sqlx::types::chrono::NaiveDate,
 }
 
-
 async fn insert(pool: &PgPool, payload: CreateUser) -> Result<User, Box<dyn Error>> {
-    let user = sqlx::query_as::<_, User>(r#"
-INSERT INTO user (name, date)
+    let user = sqlx::query_as::<_, User>(
+        r#"
+INSERT INTO user_info (name, date)
 VALUES ($1, $2)
 RETURNING *
-    "#)
+    "#,
+    )
     .bind(payload.name)
     .bind(payload.date)
     .fetch_one(pool)
@@ -57,10 +55,12 @@ RETURNING *
 }
 
 async fn query(pool: &PgPool, id: i32) -> Result<User, Box<dyn Error>> {
-    let user = sqlx::query_as::<_, User>(r#"
-SELECT * FROM item
+    let user = sqlx::query_as::<_, User>(
+        r#"
+SELECT * FROM user_info
 WHERE id = $1
-    "#)
+    "#,
+    )
     .bind(id)
     .fetch_one(pool)
     .await?;
