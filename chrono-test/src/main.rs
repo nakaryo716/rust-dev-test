@@ -1,4 +1,5 @@
 use std::{env, error::Error};
+use serde::{Deserialize, Serialize};
 use sqlx::{prelude::FromRow, PgPool};
 use tokio::time::{self, sleep};
 
@@ -8,10 +9,10 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let url = env::var("DATABASE_URL")?;
     let pool = PgPool::connect(&url).await?;
 
-    let born_ymd = sqlx::types::chrono::NaiveDate::from_ymd_opt(2003, 7, 16).unwrap();
+    let born_ymd = sqlx::types::chrono::NaiveDate::from_ymd_opt(2003, 12, 3).unwrap();
 
     let payload = CreateUser {
-        name: "りょう".to_string(),
+        name: "ふゆ".to_string(),
         date: born_ymd,
     };
 
@@ -20,19 +21,20 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     sleep(time::Duration::from_secs(4)).await;
 
-    let res2 = query(&pool, 1).await?;
+    let res2 = query(&pool, 2).await?;
     println!("{:#?}", res2);
 
     Ok(())
 }
 
-#[derive(Debug, FromRow)]
+#[derive(Debug, Deserialize, Serialize, FromRow)]
 pub struct User {
     id: i32,
     name: String,
     date: sqlx::types::chrono::NaiveDate,
 }
 
+#[derive(Debug, Deserialize)]
 pub struct CreateUser {
     name: String,
     date: sqlx::types::chrono::NaiveDate,

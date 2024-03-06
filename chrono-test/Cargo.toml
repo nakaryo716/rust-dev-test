@@ -9,5 +9,6 @@ edition = "2021"
 chrono = {version = "0.4.34", features = ["serde"] }
 sqlx ={ version = "*", features = ["postgres", "runtime-tokio-native-tls", "chrono"] }
 serde = {version = "*", features = ["derive"] }
+serde_json = "*"
 dotenvy = "*"
 tokio = {version = "*", features = ["full"] }
