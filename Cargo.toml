@@ -6,4 +6,5 @@ members = [
     "bytes-test",
     "axum-test",
     "chrono-test",
+    "simple-chrono"
 ]

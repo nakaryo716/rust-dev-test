@@ -1423,6 +1423,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "simple-chrono"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+]
+
+[[package]]
 name = "slab"
 version = "0.4.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
