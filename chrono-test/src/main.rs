@@ -1,6 +1,6 @@
-use std::{env, error::Error};
 use serde::{Deserialize, Serialize};
 use sqlx::{prelude::FromRow, PgPool};
+use std::{env, error::Error};
 use tokio::time::{self, sleep};
 
 #[tokio::main]
