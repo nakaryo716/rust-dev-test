@@ -1,10 +1,9 @@
-use core::fmt;
 use std::fmt::Display;
 
 mod collecgtions;
 mod iter_test;
 mod lamda;
-
+mod channel;
 fn main() {
     let mut a = TypeA::new(1, "ryo".to_string());
 

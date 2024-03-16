@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn iter_tes() {
     froms();
     // deferent();
@@ -5,6 +6,7 @@ pub fn iter_tes() {
 
 // .iter()は参照
 // .into_iter()は所有権を奪う
+#[allow(dead_code)]
 fn deferent() {
     let v = vec![0, 1, 2, 3, 4, 5];
 
@@ -21,6 +23,7 @@ fn deferent() {
 }
 
 // from_fnはOptionを返すクロージャFnMut()を実行する
+#[allow(dead_code)]
 fn froms() {
     let gen = || Some(128);
 
@@ -32,12 +35,14 @@ fn froms() {
 pub mod other {
     use std::vec;
 
+    #[allow(dead_code)]
     pub fn range() {
         let buf: Vec<i32> = (0..=10).collect();
         println!("{:?}", buf);
     }
 
     // split()は引数のクロージャを評価して分ける
+    #[allow(dead_code)]
     pub fn split_vec() {
         let v = vec![1, 1, 2, 3, 4];
 
@@ -49,6 +54,7 @@ pub mod other {
     }
 
     // 文字列を任意の文字で分ける.split()
+    #[allow(dead_code)]
     pub fn split_str() {
         let text = "Hello World Rustacean".to_string();
 

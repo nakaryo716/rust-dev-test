@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn vector() {
     let text = String::from("Hello");
 
@@ -7,6 +8,7 @@ pub fn vector() {
     println!("{}", v.capacity());
 }
 
+#[allow(dead_code)]
 pub fn string_test() {
     let mut text = "Hello".to_string();
 
@@ -20,6 +22,7 @@ pub fn string_test() {
     println!("{}", new);
 }
 
+#[allow(dead_code)]
 pub fn strincg_test2() {
     let text = "256".to_string();
 
@@ -28,6 +31,7 @@ pub fn strincg_test2() {
     println!("{}", number + 10);
 }
 
+#[allow(dead_code)]
 pub fn string_test3() {
     let number = 256;
 
